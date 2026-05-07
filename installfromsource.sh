@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# ============================================
-# Waveshare 3.5" Capacitive Touch LCD (SKU 29318/30896)
-# FULL INSTALL - compiles overlay from source
-# Raspberry Pi 5 + Raspberry Pi OS 64-bit
-# Source: https://github.com/mumbojum2/Waveshare-SK30896-Display
-# ============================================
-
 set -e
 
 echo "=== Waveshare 3.5""
