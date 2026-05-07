@@ -36,15 +36,16 @@ sudo raspi-config nonint do_i2c 0
 if ! grep -q "waveshare 3.5in" /boot/firmware/config.txt; then
     sudo tee -a /boot/firmware/config.txt << 'EOF'
 
-# ===== Waveshare 3.5" Display - SKU 30896/29318 =====
-# Basic SPI panel driver
-dtoverlay=mipi-dbi-spi,speed=64000000
-dtparam=compatible=wavesku30896\0panel-mipi-dbi-spi
-dtparam=width=320,height=480,width-mm=49,height-mm=79
-dtparam=reset-gpio=27,dc-gpio=22,backlight-gpio=18
 
-# Custom overlay for touch + PWM backlight
-dtoverlay=spi0-waveshare-SK30896-pi5,i2c1
+# waveshare 3.5in 320x480pixels - SKU 30896                                                    
+# connected via pogo-pins                                                                       
+dtoverlay=mipi-dbi-spi,speed=64000000                                                           
+dtparam=compatible=wavesku30896\0panel-mipi-dbi-spi                                            
+dtparam=width=320,height=480,width-mm=49,height-mm=79                                           
+dtparam=reset-gpio=27,dc-gpio=22,backlight-gpio=18                                              
+dtoverlay=goodix,addr=0x5d,i2c1=on                                                              
+dtparam=backlight=on                                                                              
+
 EOF
     echo "Config added to /boot/firmware/config.txt"
 else
