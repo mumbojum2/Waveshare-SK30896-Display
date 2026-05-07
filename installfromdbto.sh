@@ -9,7 +9,7 @@
 
 set -e
 
-echo "=== Waveshare 3.5" LCD Install (Simple) ==="
+echo "Waveshare 3.5 install"
 
 # 1. Install required tools
 sudo apt update
